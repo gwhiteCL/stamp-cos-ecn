@@ -6,14 +6,14 @@ IP Performance Measurement                                      G. White
 Internet-Draft                                                 CableLabs
 Updates: 8972 (if approved)                                    G. Mirsky
 Intended status: Standards Track                                Ericsson
-Expires: 23 May 2026                                              X. Min
+Expires: 3 July 2026                                              X. Min
                                                                ZTE Corp.
-                                                        19 November 2025
+                                                        30 December 2025
 
 
    Update of the Simple Two-way Active Measurement Protocol Class-of-
                         Service Extension - ECN
-                 draft-whimir-ippm-stamp-cos-ecn-latest
+                  draft-ietf-ippm-stamp-cos-ecn-latest
 
 Abstract
 
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 May 2026.
+   This Internet-Draft will expire on 3 July 2026.
 
 Copyright Notice
 
