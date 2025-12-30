@@ -18,7 +18,7 @@
 <rfc
   xmlns:xi="http://www.w3.org/2001/XInclude"
   category="std"
-  docName="draft-whimir-ippm-stamp-cos-ecn-latest"
+  docName="draft-ietf-ippm-stamp-cos-ecn-latest"
   ipr="trust200902"
   obsoletes=""
   updates="8972"
@@ -29,7 +29,7 @@
   <front>
     <title abbrev="STAMP CoS ECN Update">Update of the Simple Two-way Active Measurement Protocol Class-of-Service Extension - ECN</title>
 
-    <seriesInfo name="Internet-Draft" value="draft-whimir-ippm-stamp-cos-ecn-latest"/>
+    <seriesInfo name="Internet-Draft" value="draft-ietf-ippm-stamp-cos-ecn-latest"/>
 
 
     <author fullname="Greg White" initials="G" surname="White">
