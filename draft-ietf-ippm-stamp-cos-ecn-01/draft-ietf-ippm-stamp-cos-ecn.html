@@ -1372,8 +1372,9 @@ svg {
       reflected test packet to the value 0b11.
       If the Session-Reflector is unable to set the ECN value in the IP header of the
       reflected STAMP test packet to the EC1 value,
-      it <span class="bcp14">MUST</span> instead set the RPE field in the CoS TLV in the
-      reflected test packet to the value 0b10.
+      it <span class="bcp14">MUST</span> instead set the ECN value in the IP header to 0b00 and
+      set the RPE field in the CoS TLV to the value 0b10
+      in the reflected test packet.
       As a result, the Session-Sender can detect whether the EC1
       value was used by
       inspecting the value of the RPE field in the received
