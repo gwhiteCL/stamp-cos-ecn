@@ -222,8 +222,9 @@
       reflected test packet to the value 0b11.
       If the Session-Reflector is unable to set the ECN value in the IP header of the
       reflected STAMP test packet to the EC1 value,
-      it <bcp14>MUST</bcp14> instead set the RPE field in the CoS TLV in the
-      reflected test packet to the value 0b10.
+      it <bcp14>MUST</bcp14> instead set the ECN value in the IP header to 0b00 and
+      set the RPE field in the CoS TLV to the value 0b10
+      in the reflected test packet.
       As a result, the Session-Sender can detect whether the EC1
       value was used by
       inspecting the value of the RPE field in the received
@@ -330,6 +331,7 @@
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8311.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9331.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-ippm-stamp-ext-hdr-07.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-tsvwg-udp-ecn-08.xml"/>
       </references>
     </references>
 
