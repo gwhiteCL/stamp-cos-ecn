@@ -6,9 +6,9 @@ IP Performance Measurement                                      G. White
 Internet-Draft                                                 CableLabs
 Updates: 8972 (if approved)                                    G. Mirsky
 Intended status: Standards Track                                Ericsson
-Expires: 3 July 2026                                              X. Min
+Expires: 21 January 2027                                          X. Min
                                                                ZTE Corp.
-                                                        30 December 2025
+                                                            20 July 2026
 
 
    Update of the Simple Two-way Active Measurement Protocol Class-of-
@@ -42,11 +42,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 July 2026.
+   This Internet-Draft will expire on 21 January 2027.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -213,10 +213,11 @@ Table of Contents
    the reflected test packet to the value 0b11.  If the Session-
    Reflector is unable to set the ECN value in the IP header of the
    reflected STAMP test packet to the EC1 value, it MUST instead set the
-   RPE field in the CoS TLV in the reflected test packet to the value
-   0b10.  As a result, the Session-Sender can detect whether the EC1
-   value was used by inspecting the value of the RPE field in the
-   received reflected test packet.
+   ECN value in the IP header to 0b00 and set the RPE field in the CoS
+   TLV to the value 0b10 in the reflected test packet.  As a result, the
+   Session-Sender can detect whether the EC1 value was used by
+   inspecting the value of the RPE field in the received reflected test
+   packet.
 
 3.3.  Interoperability with RFC 8972
 
@@ -383,6 +384,13 @@ Table of Contents
               Internet-Draft, draft-ietf-ippm-stamp-ext-hdr-07, 6
               November 2025, <https://datatracker.ietf.org/doc/html/
               draft-ietf-ippm-stamp-ext-hdr-07>.
+
+   [I-D.ietf-tsvwg-udp-ecn]
+              Duke, M., "Configuring UDP Sockets for ECN for Common
+              Platforms", Work in Progress, Internet-Draft, draft-ietf-
+              tsvwg-udp-ecn-08, 4 May 2026,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-tsvwg-
+              udp-ecn-08>.
 
 Acknowledgements
 
