@@ -5,10 +5,10 @@
 IP Performance Measurement                                      G. White
 Internet-Draft                                                 CableLabs
 Updates: 8972 (if approved)                                    G. Mirsky
-Intended status: Standards Track                                Ericsson
-Expires: 21 January 2027                                          X. Min
+Intended status: Standards Track                                   Ciena
+Expires: 14 February 2027                                         X. Min
                                                                ZTE Corp.
-                                                            20 July 2026
+                                                          13 August 2026
 
 
    Update of the Simple Two-way Active Measurement Protocol Class-of-
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 January 2027.
+   This Internet-Draft will expire on 14 February 2027.
 
 Copyright Notice
 
@@ -413,7 +413,7 @@ Authors' Addresses
 
 
    Greg Mirsky
-   Ericsson
+   Ciena
    Email: gregimirsky@gmail.com
 
 
