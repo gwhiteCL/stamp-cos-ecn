@@ -226,8 +226,8 @@
       set the RPE field in the CoS TLV to the value 0b10
       in the reflected test packet.
       If the Session-Reflector is unable to set the ECN value in the IP header of the
-      reflected STAMP test packet to the EC1 value, and the Session-Reflector is unable to set the ECN value 
-      in the IP header of the reflected STAMP test packet to 0b00, 
+      reflected STAMP test packet to the EC1 value, and the Session-Reflector is unable to set the ECN value
+      in the IP header of the reflected STAMP test packet to 0b00,
       it <bcp14>MUST</bcp14> set the Conformant Reflected Packet STAMP TLV flag (<xref target="RFC10052" section="6.2"/>) to 1.
       As a result, the Session-Sender can detect whether the EC1
       value was used by
@@ -452,7 +452,7 @@
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8762.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8972.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9330.xml"/>
-        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.10052.xml"/>        
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.10052.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-ippm-asymmetrical-pkts-08.xml"/>
       </references>
 
