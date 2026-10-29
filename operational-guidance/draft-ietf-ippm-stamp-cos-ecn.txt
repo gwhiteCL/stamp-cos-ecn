@@ -5,10 +5,10 @@
 IP Performance Measurement                                      G. White
 Internet-Draft                                                 CableLabs
 Updates: 8972 (if approved)                                    G. Mirsky
-Intended status: Standards Track                                Ericsson
-Expires: 21 January 2027                                          X. Min
+Intended status: Standards Track                                   Ciena
+Expires: 2 May 2027                                               X. Min
                                                                ZTE Corp.
-                                                            20 July 2026
+                                                         29 October 2026
 
 
    Update of the Simple Two-way Active Measurement Protocol Class-of-
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 January 2027.
+   This Internet-Draft will expire on 2 May 2027.
 
 Copyright Notice
 
@@ -69,11 +69,18 @@ Table of Contents
      3.2.  Session-Reflector Behavior
      3.3.  Interoperability with RFC 8972
      3.4.  Congestion Response
-   4.  IANA Considerations
-   5.  Security Considerations
-   6.  References
-     6.1.  Normative References
-     6.2.  Informative References
+   4.  Operational Considerations
+     4.1.  Deployment Considerations
+     4.2.  Configuration and Policy Considerations
+     4.3.  Monitoring and Observability
+     4.4.  Troubleshooting Considerations
+     4.5.  Performance and Congestion Considerations
+     4.6.  Interoperability Considerations
+   5.  IANA Considerations
+   6.  Security Considerations
+   7.  References
+     7.1.  Normative References
+     7.2.  Informative References
    Acknowledgements
    Contributors
    Authors' Addresses
@@ -298,11 +305,109 @@ Table of Contents
    STAMP packet sent to the same Session-Reflector based on the
    observation of CE values.
 
-4.  IANA Considerations
+4.  Operational Considerations
+
+   This document extends the STAMP Class of Service (CoS) TLV to support
+   the measurement of Explicit Congestion Notification (ECN) treatment
+   in both the forward and reverse directions of a STAMP test session.
+   The extension does not introduce new protocol state or session
+   establishment procedures, but it does introduce additional
+   operational considerations for deployment, monitoring, and
+   troubleshooting.
+
+4.1.  Deployment Considerations
+
+   To obtain meaningful ECN measurements, both the Session-Sender and
+   Session-Reflector SHOULD support the extended CoS TLV specified in
+   this document.  In deployments where a Session-Reflector only
+   supports the CoS TLV defined in RFC 8972, a Session-Sender can detect
+   the absence of reverse-path ECN support through the behavior of the
+   RPE field and SHOULD limit its analysis accordingly.
+
+   Operators SHOULD verify that the platform hosting the Session-
+   Reflector is capable of setting and reporting ECN values in reflected
+   test packets.  Platform limitations or operating system restrictions
+   may prevent the requested ECN value from being applied.
+
+4.2.  Configuration and Policy Considerations
+
+   The behavior of a Session-Reflector may be influenced by local policy
+   governing the use of DSCP and ECN values in reflected packets.  Such
+   policies can be configured globally or on a per-destination basis.
+
+   Operators SHOULD understand and document these policies because
+   policy-enforced remarking may otherwise be incorrectly interpreted as
+   network impairment or middlebox behavior.
+
+   When measurements are performed across administrative domains,
+   operators SHOULD coordinate ECN handling policies to facilitate
+   consistent interpretation of measurement results.
+
+4.3.  Monitoring and Observability
+
+   The extension improves observability of ECN processing by providing
+   information about ECN handling on both directions of the measurement
+   path.  Specifically, a Session-Sender can determine:
+
+   *  The ECN value received by the Session-Reflector.
+
+   *  Whether the Session-Reflector applied the requested reverse-path
+      ECN value.
+
+   *  Whether Congestion Experienced (CE) markings were observed on
+      either path.
+
+   Operators SHOULD collect and analyze the EC2 field, the ECN value
+   observed in reflected packets, and the RPE field.  These values can
+   assist in identifying ECN bleaching, ECN remarking, differential
+   treatment of ECN-marked packets, or congestion occurring along the
+   measured path.
+
+4.4.  Troubleshooting Considerations
+
+   Unexpected ECN-related measurement results may be caused by:
+
+   *  Middleboxes modifying or clearing ECN markings.
+
+   *  Traffic conditioning or QoS policies.
+
+   *  Session-Reflector platform limitations.
+
+   *  Network congestion resulting in CE markings.
+
+   When investigating unexpected behavior, operators SHOULD examine the
+   EC2 and RPE fields together with the ECN field of reflected packets
+   in order to distinguish between network-induced behavior and Session-
+   Reflector policy enforcement.
+
+4.5.  Performance and Congestion Considerations
+
+   This extension enables the use of ECT(0) and ECT(1) markings in STAMP
+   measurements.  Implementations using these codepoints are required to
+   monitor for CE indications and react appropriately to congestion
+   conditions.
+
+   Operators SHOULD ensure that automated measurement systems utilizing
+   ECN-marked STAMP packets comply with the congestion response
+   requirements defined by the relevant ECN specifications and do not
+   generate excessive measurement traffic when CE markings are observed.
+
+4.6.  Interoperability Considerations
+
+   The extension is designed to be backward compatible with RFC 8972
+   implementations.  Mixed deployments may therefore be introduced
+   incrementally.
+
+   Operators SHOULD verify interoperability between Session-Senders and
+   Session-Reflectors during deployment and SHOULD confirm that reverse-
+   path ECN functionality is available before relying on bidirectional
+   ECN measurement results.
+
+5.  IANA Considerations
 
    This document includes no request to IANA.
 
-5.  Security Considerations
+6.  Security Considerations
 
    This document extends the functionality of the CoS TLV ([RFC8972])
    and inherits all the security considerations applicable to the base
@@ -315,9 +420,9 @@ Table of Contents
    across the Internet such that the Session-Sender and the Session-
    Reflector are located in different domains.
 
-6.  References
+7.  References
 
-6.1.  Normative References
+7.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -364,7 +469,7 @@ Table of Contents
               <https://datatracker.ietf.org/doc/html/draft-ietf-ippm-
               asymmetrical-pkts-08>.
 
-6.2.  Informative References
+7.2.  Informative References
 
    [RFC8311]  Black, D., "Relaxing Restrictions on Explicit Congestion
               Notification (ECN) Experimentation", RFC 8311,
@@ -413,7 +518,7 @@ Authors' Addresses
 
 
    Greg Mirsky
-   Ericsson
+   Ciena
    Email: gregimirsky@gmail.com
 
 
