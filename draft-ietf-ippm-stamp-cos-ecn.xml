@@ -432,6 +432,11 @@
        Internet such that the Session-Sender and the Session-Reflector are
        located in different domains.
       </t>
+
+      <t>In environments where a middlebox may tamper with the CoS TLV, this could affect the accuracy of ECN measurements.
+      Implementers should consider the security implications of such tampering and take appropriate measures to mitigate potential risks.
+      These measures could include the use of the HMAC TLV defined in <xref target="RFC8972" section="4.8"/> and/or the use of UDP port numbers
+      from the Dynamic Ports (aka Private or Ephemeral Ports) range (<xref target="RFC8762" section="4.1"/>) as the destination UDP port number in the STAMP test packets.</t>
     </section>
 
   </middle>
