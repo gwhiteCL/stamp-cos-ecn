@@ -285,6 +285,131 @@
     </section>
   </section>
 
+<section anchor="operational-considerations">
+  <name>Operational Considerations</name>
+  <t>
+    This document extends the STAMP Class of Service (CoS) TLV to
+    support the measurement of Explicit Congestion Notification (ECN)
+    treatment in both the forward and reverse directions of a STAMP
+    test session. The extension does not introduce new protocol state
+    or session establishment procedures, but it does introduce
+    additional operational considerations for deployment, monitoring,
+    and troubleshooting.
+  </t>
+
+  <section anchor="deployment-considerations">
+    <name>Deployment Considerations</name>
+    <t>
+      To obtain meaningful ECN measurements, both the Session-Sender
+      and Session-Reflector SHOULD support the extended CoS TLV
+      specified in this document. In deployments where a
+      Session-Reflector only supports the CoS TLV defined in RFC 8972,
+      a Session-Sender can detect the absence of reverse-path ECN
+      support through the behavior of the RPE field and SHOULD limit
+      its analysis accordingly.
+    </t>
+    <t>
+      Operators SHOULD verify that the platform hosting the
+      Session-Reflector is capable of setting and reporting ECN values
+      in reflected test packets. Platform limitations or operating
+      system restrictions may prevent the requested ECN value from
+      being applied.
+    </t>
+  </section>
+
+  <section anchor="configuration-policy">
+    <name>Configuration and Policy Considerations</name>
+    <t>
+      The behavior of a Session-Reflector may be influenced by local
+      policy governing the use of DSCP and ECN values in reflected
+      packets. Such policies can be configured globally or on a
+      per-destination basis.
+    </t>
+    <t>
+      Operators SHOULD understand and document these policies because
+      policy-enforced remarking may otherwise be incorrectly
+      interpreted as network impairment or middlebox behavior.
+    </t>
+    <t>
+      When measurements are performed across administrative domains,
+      operators SHOULD coordinate ECN handling policies to facilitate
+      consistent interpretation of measurement results.
+    </t>
+  </section>
+
+  <section anchor="monitoring-observability">
+    <name>Monitoring and Observability</name>
+    <t>
+      The extension improves observability of ECN processing by
+      providing information about ECN handling on both directions of
+      the measurement path. Specifically, a Session-Sender can
+      determine:
+    </t>
+    <ul>
+      <li>The ECN value received by the Session-Reflector.</li>
+      <li>Whether the Session-Reflector applied the requested reverse-path ECN value.</li>
+      <li>Whether Congestion Experienced (CE) markings were observed on either path.</li>
+    </ul>
+    <t>
+      Operators SHOULD collect and analyze the EC2 field, the ECN
+      value observed in reflected packets, and the RPE field. These
+      values can assist in identifying ECN bleaching, ECN remarking,
+      differential treatment of ECN-marked packets, or congestion
+      occurring along the measured path.
+    </t>
+  </section>
+
+  <section anchor="troubleshooting">
+    <name>Troubleshooting Considerations</name>
+    <t>
+      Unexpected ECN-related measurement results may be caused by:
+    </t>
+    <ul>
+      <li>Middleboxes modifying or clearing ECN markings.</li>
+      <li>Traffic conditioning or QoS policies.</li>
+      <li>Session-Reflector platform limitations.</li>
+      <li>Network congestion resulting in CE markings.</li>
+    </ul>
+    <t>
+      When investigating unexpected behavior, operators SHOULD examine
+      the EC2 and RPE fields together with the ECN field of reflected
+      packets in order to distinguish between network-induced behavior
+      and Session-Reflector policy enforcement.
+    </t>
+  </section>
+
+  <section anchor="performance-considerations">
+    <name>Performance and Congestion Considerations</name>
+    <t>
+      This extension enables the use of ECT(0) and ECT(1) markings in
+      STAMP measurements. Implementations using these codepoints are
+      required to monitor for CE indications and react appropriately
+      to congestion conditions.
+    </t>
+    <t>
+      Operators SHOULD ensure that automated measurement systems
+      utilizing ECN-marked STAMP packets comply with the congestion
+      response requirements defined by the relevant ECN specifications
+      and do not generate excessive measurement traffic when CE
+      markings are observed.
+    </t>
+  </section>
+
+  <section anchor="interoperability-considerations">
+    <name>Interoperability Considerations</name>
+    <t>
+      The extension is designed to be backward compatible with RFC
+      8972 implementations. Mixed deployments may therefore be
+      introduced incrementally.
+    </t>
+    <t>
+      Operators SHOULD verify interoperability between Session-Senders
+      and Session-Reflectors during deployment and SHOULD confirm that
+      reverse-path ECN functionality is available before relying on
+      bidirectional ECN measurement results.
+    </t>
+  </section>
+</section>
 
     <section anchor="IANA">
     <!-- All drafts are required to have an IANA considerations section. See RFC 8126 for a guide.-->
