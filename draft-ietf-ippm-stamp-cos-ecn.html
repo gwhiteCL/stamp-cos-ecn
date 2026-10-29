@@ -1395,9 +1395,13 @@ svg {
       it <span class="bcp14">MUST</span> instead set the ECN value in the IP header to 0b00 and
       set the RPE field in the CoS TLV to the value 0b10
       in the reflected test packet.
+      If the Session-Reflector is unable to set the ECN value in the IP header of the
+      reflected STAMP test packet to the EC1 value, and the Session-Reflector is unable to set the ECN value
+      in the IP header of the reflected STAMP test packet to 0b00,
+      it <span class="bcp14">MUST</span> set the Conformant Reflected Packet STAMP TLV flag (<span><a href="https://rfc-editor.org/rfc/rfc10052#section-6.2" class="relref">Section 6.2</a> of [<a href="#RFC10052" class="cite xref">RFC10052</a>]</span>) to 1.
       As a result, the Session-Sender can detect whether the EC1
       value was used by
-      inspecting the value of the RPE field in the received
+      inspecting the value of the RPE field and the Conformant Reflected Packet STAMP TLV flag in the received
       reflected test packet.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
 </section>
 <section id="section-3.3">
@@ -1646,6 +1650,10 @@ svg {
 <dt id="RFC9330">[RFC9330]</dt>
         <dd>
 <span class="refAuthor">Briscoe, B., Ed.</span>, <span class="refAuthor">De Schepper, K.</span>, <span class="refAuthor">Bagnulo, M.</span>, and <span class="refAuthor">G. White</span>, <span class="refTitle">"Low Latency, Low Loss, and Scalable Throughput (L4S) Internet Service: Architecture"</span>, <span class="seriesInfo">RFC 9330</span>, <span class="seriesInfo">DOI 10.17487/RFC9330</span>, <time datetime="2023-01" class="refDate">January 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9330">https://www.rfc-editor.org/info/rfc9330</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC10052">[RFC10052]</dt>
+        <dd>
+<span class="refAuthor">Mirsky, G.</span>, <span class="refAuthor">Ruffini, E.</span>, <span class="refAuthor">Nydell, H.</span>, <span class="refAuthor">Foote, R.</span>, and <span class="refAuthor">W. Hawkins</span>, <span class="refTitle">"Performance Measurement with Asymmetrical Traffic Using the Simple Two-Way Active Measurement Protocol (STAMP)"</span>, <span class="seriesInfo">RFC 10052</span>, <span class="seriesInfo">DOI 10.17487/RFC10052</span>, <time datetime="2026-09" class="refDate">September 2026</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc10052">https://www.rfc-editor.org/info/rfc10052</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-ippm-asymmetrical-pkts">[I-D.ietf-ippm-asymmetrical-pkts]</dt>
       <dd>
