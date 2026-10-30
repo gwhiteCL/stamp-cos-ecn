@@ -106,11 +106,19 @@
    support monitoring of ECN in the return path of the STAMP test
    session.
       </t>
+
+      <t>The ECN monitoring capabilities defined in this document can help operators detect ECN
+      bleaching and investigate its location along a path.
+      These capabilities can also complement hop-by-hop measurements using on-path telemetry, as
+      described in <xref target="I-D.ietf-ippm-on-path-active-measurements"/>.
+      <xref target="monitoring-observability"/> discusses these uses.</t>
+
       <t>Another STAMP extension header <xref target="I-D.ietf-ippm-stamp-ext-hdr"/> defines a mechanism that can
       be used by a Session-Sender to request that the Session-Reflector copy the entire IP header from the received test
       packet into the reflected test packet.
       That capability could be used in place of the CoS TLV to observe the DSCP and ECN values in the forward direction in situations
       where there is no need to control the return path DSCP or ECN value. </t>
+
     </section>
 
     <section>
@@ -367,10 +375,56 @@
       differential treatment of ECN-marked packets, or congestion
       occurring along the measured path.
     </t>
+    <t>
+      ECN bleaching, in which a network device clears the ECN field to Not-ECT, has
+      been observed in deployed networks <xref target="ECN-Traversal"/>.
+      Operators can investigate this failure mode using the CoS TLV.
+      For example, when a Session-Sender transmits an ECT(0)- or ECT(1)-marked test packet and the
+      reflected EC2 field reports Not-ECT, the measurement reveals bleaching on the forward path.
+      Operators can use this information to identify and correct misconfigurations that
+      prevent ECN from operating as intended.
+    </t>
+    <t>
+      When these measurements reveal ECN bleaching, operators can use complementary diagnostic
+      tools to help locate the responsible devices.
+      For example, traceroute-like techniques can inspect the quoted IP headers in ICMP responses
+      to detect changes to the ECN field along a path;
+      <xref target="Tracebox"/> describes a tool for investigating such header modifications.
+      While these techniques are independent of STAMP and do not require the use of STAMP
+      packets or the CoS TLV, differences in probe traffic and paths can affect how their results
+      relate to the STAMP measurements.
+    </t>
+    <t>
+      ECN monitoring using the CoS TLV can be combined with hop-by-hop measurements
+      as described in <xref target="I-D.ietf-ippm-on-path-active-measurements"/>.
+      The CoS TLV itself does not provide observations from intermediate nodes.
+      These hop-by-hop measurements require additional on-path telemetry encapsulations, such
+      as IPv6 Hop-by-Hop Options for Alternate Marking or In Situ OAM (IOAM), or MPLS Network
+      Action (MNA) Sub-Stacks, together with support and configuration at participating nodes.
+      Correlating the resulting telemetry with ECN observations can provide additional information
+      for investigating congestion and differential packet treatment along the measured path.
+    </t>
+    <t>
+      For example, the extensions defined in <xref target="I-D.ietf-ippm-stamp-ext-hdr"/>
+      can be used to return collected IOAM data in IPv6 extension headers to the Session-Sender,
+      while the CoS TLV provides ECN monitoring.
+      The deployment and security considerations of the selected telemetry mechanism also apply.
+    </t>
   </section>
 
   <section anchor="troubleshooting">
     <name>Troubleshooting Considerations</name>
+    <t>
+      The CoS TLV can be used to compare performance metrics, such as latency and packet
+      loss, for test packets sent with different ECN codepoints.
+      Interpretation of these measurements depends on the packets retaining the ECN capability
+      indicated by the selected codepoint along the path under test, while allowing for congestion
+      marking from ECT(0) or ECT(1) to CE.
+      ECN bleaching or other unintended remarking can prevent packets from receiving the
+      treatment being evaluated and lead to unexpected or misleading performance results.
+      The ECN observations described in <xref target="monitoring-observability"/> can help
+      operators establish whether this prerequisite is met.
+    </t>
     <t>
       Unexpected ECN-related measurement results may be caused by:
     </t>
@@ -471,10 +525,41 @@
 
       <references>
         <name>Informative References</name>
+        <reference anchor="Tracebox" target="https://www.tracebox.org/">
+          <front>
+            <title>Revealing Middlebox Interference with Tracebox</title>
+            <author initials="G." surname="Detal" fullname="Gregory Detal"/>
+            <author initials="B." surname="Hesmans" fullname="Benjamin Hesmans"/>
+            <author initials="O." surname="Bonaventure" fullname="Olivier Bonaventure"/>
+            <author initials="Y." surname="Vanaubel" fullname="Yves Vanaubel"/>
+            <author initials="B." surname="Donnet" fullname="Benoit Donnet"/>
+            <date month="October" year="2013"/>
+          </front>
+          <seriesInfo name="Proceedings of the ACM Internet Measurement Conference" value="IMC 2013"/>
+        </reference>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8311.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9331.xml"/>
-        <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-ippm-stamp-ext-hdr-07.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-ippm-stamp-ext-hdr-11.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-tsvwg-udp-ecn-08.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-ippm-on-path-active-measurements-03.xml"/>
+        <reference anchor="ECN-Traversal" target="https://arxiv.org/abs/2208.14523">
+          <front>
+            <title>A Fresh Look at ECN Traversal in the Wild</title>
+            <author initials="H." surname="Lim" fullname="Hyoyoung Lim"/>
+            <author initials="S." surname="Kim" fullname="Seonwoo Kim"/>
+            <author initials="J." surname="Sippe" fullname="Jackson Sippe"/>
+            <author initials="J." surname="Kim" fullname="Junseon Kim"/>
+            <author initials="G." surname="White" fullname="Greg White"/>
+            <author initials="C." surname="Lee" fullname="Chul-Ho Lee"/>
+            <author initials="E." surname="Wustrow" fullname="Eric Wustrow"/>
+            <author initials="K." surname="Lee" fullname="Kyunghan Lee"/>
+            <author initials="D." surname="Grunwald" fullname="Dirk Grunwald"/>
+            <author initials="S." surname="Ha" fullname="Sangtae Ha"/>
+            <date month="August" year="2022"/>
+          </front>
+          <seriesInfo name="arXiv" value="2208.14523"/>
+          <seriesInfo name="DOI" value="10.48550/arXiv.2208.14523"/>
+        </reference>
       </references>
     </references>
 
