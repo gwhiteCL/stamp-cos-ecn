@@ -6,9 +6,9 @@ IP Performance Measurement                                      G. White
 Internet-Draft                                                 CableLabs
 Updates: 8972 (if approved)                                    G. Mirsky
 Intended status: Standards Track                                   Ciena
-Expires: 2 May 2027                                               X. Min
+Expires: 3 May 2027                                               X. Min
                                                                ZTE Corp.
-                                                         29 October 2026
+                                                         30 October 2026
 
 
    Update of the Simple Two-way Active Measurement Protocol Class-of-
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 May 2027.
+   This Internet-Draft will expire on 3 May 2027.
 
 Copyright Notice
 
@@ -98,6 +98,13 @@ Table of Contents
    ECN's consistency in both directions.  This specification updates the
    definition of the CoS TLV in a backward compatible manner to support
    monitoring of ECN in the return path of the STAMP test session.
+
+   The ECN monitoring capabilities defined in this document can help
+   operators detect ECN bleaching and investigate its location along a
+   path.  These capabilities can also complement hop-by-hop measurements
+   using on-path telemetry, as described in
+   [I-D.ietf-ippm-on-path-active-measurements].  Section 4.3 discusses
+   these uses.
 
    Another STAMP extension header [I-D.ietf-ippm-stamp-ext-hdr] defines
    a mechanism that can be used by a Session-Sender to request that the
@@ -384,7 +391,55 @@ Table of Contents
    treatment of ECN-marked packets, or congestion occurring along the
    measured path.
 
+   ECN bleaching, in which a network device clears the ECN field to Not-
+   ECT, has been observed in deployed networks [ECN-Traversal].
+   Operators can investigate this failure mode using the CoS TLV.  For
+   example, when a Session-Sender transmits an ECT(0)- or ECT(1)-marked
+   test packet and the reflected EC2 field reports Not-ECT, the
+   measurement reveals bleaching on the forward path.  Operators can use
+   this information to identify and correct misconfigurations that
+   prevent ECN from operating as intended.
+
+   When these measurements reveal ECN bleaching, operators can use
+   complementary diagnostic tools to help locate the responsible
+   devices.  For example, traceroute-like techniques can inspect the
+   quoted IP headers in ICMP responses to detect changes to the ECN
+   field along a path; [Tracebox] describes a tool for investigating
+   such header modifications.  While these techniques are independent of
+   STAMP and do not require the use of STAMP packets or the CoS TLV,
+   differences in probe traffic and paths can affect how their results
+   relate to the STAMP measurements.
+
+   ECN monitoring using the CoS TLV can be combined with hop-by-hop
+   measurements as described in
+   [I-D.ietf-ippm-on-path-active-measurements].  The CoS TLV itself does
+   not provide observations from intermediate nodes.  These hop-by-hop
+   measurements require additional on-path telemetry encapsulations,
+   such as IPv6 Hop-by-Hop Options for Alternate Marking or In Situ OAM
+   (IOAM), or MPLS Network Action (MNA) Sub-Stacks, together with
+   support and configuration at participating nodes.  Correlating the
+   resulting telemetry with ECN observations can provide additional
+   information for investigating congestion and differential packet
+   treatment along the measured path.
+
+   For example, the extensions defined in [I-D.ietf-ippm-stamp-ext-hdr]
+   can be used to return collected IOAM data in IPv6 extension headers
+   to the Session-Sender, while the CoS TLV provides ECN monitoring.
+   The deployment and security considerations of the selected telemetry
+   mechanism also apply.
+
 4.4.  Troubleshooting Considerations
+
+   The CoS TLV can be used to compare performance metrics, such as
+   latency and packet loss, for test packets sent with different ECN
+   codepoints.  Interpretation of these measurements depends on the
+   packets retaining the ECN capability indicated by the selected
+   codepoint along the path under test, while allowing for congestion
+   marking from ECT(0) or ECT(1) to CE.  ECN bleaching or other
+   unintended remarking can prevent packets from receiving the treatment
+   being evaluated and lead to unexpected or misleading performance
+   results.  The ECN observations described in Section 4.3 can help
+   operators establish whether this prerequisite is met.
 
    Unexpected ECN-related measurement results may be caused by:
 
@@ -510,6 +565,12 @@ Table of Contents
 
 7.2.  Informative References
 
+   [Tracebox] Detal, G., Hesmans, B., Bonaventure, O., Vanaubel, Y., and
+              B. Donnet, "Revealing Middlebox Interference with
+              Tracebox", Proceedings of the ACM Internet Measurement
+              Conference IMC 2013, October 2013,
+              <https://www.tracebox.org/>.
+
    [RFC8311]  Black, D., "Relaxing Restrictions on Explicit Congestion
               Notification (ECN) Experimentation", RFC 8311,
               DOI 10.17487/RFC8311, January 2018,
@@ -525,9 +586,9 @@ Table of Contents
               Gandhi, R., Zhou, T., Li, Z., and W. Hawkins, "Simple Two-
               Way Active Measurement Protocol (STAMP) Extensions for
               Reflecting STAMP Packet IP Headers", Work in Progress,
-              Internet-Draft, draft-ietf-ippm-stamp-ext-hdr-07, 6
-              November 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-ippm-stamp-ext-hdr-07>.
+              Internet-Draft, draft-ietf-ippm-stamp-ext-hdr-11, 4 July
+              2026, <https://datatracker.ietf.org/doc/html/draft-ietf-
+              ippm-stamp-ext-hdr-11>.
 
    [I-D.ietf-tsvwg-udp-ecn]
               Duke, M., "Configuring UDP Sockets for ECN for Common
@@ -535,6 +596,21 @@ Table of Contents
               tsvwg-udp-ecn-08, 4 May 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tsvwg-
               udp-ecn-08>.
+
+   [I-D.ietf-ippm-on-path-active-measurements]
+              Fioccola, G., Zhu, K., Zhou, T., Zhu, Y., and X. Min, "On-
+              Path Telemetry for Active Performance Measurements", Work
+              in Progress, Internet-Draft, draft-ietf-ippm-on-path-
+              active-measurements-03, 28 August 2026,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-ippm-on-
+              path-active-measurements-03>.
+
+   [ECN-Traversal]
+              Lim, H., Kim, S., Sippe, J., Kim, J., White, G., Lee, C.,
+              Wustrow, E., Lee, K., Grunwald, D., and S. Ha, "A Fresh
+              Look at ECN Traversal in the Wild", arXiv 2208.14523,
+              DOI 10.48550/arXiv.2208.14523, August 2022,
+              <https://arxiv.org/abs/2208.14523>.
 
 Acknowledgements
 
