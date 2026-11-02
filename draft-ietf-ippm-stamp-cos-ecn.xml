@@ -565,9 +565,11 @@
     </references>
 
     <section anchor="Acknowledgements" numbered="false">
-      <!-- [REPLACE/DELETE] an Acknowledgements section is optional -->
       <name>Acknowledgements</name>
-      <t>TBD</t>
+      <t>Thanks to the contributors and reviewers for their valuable feedback.  
+      In particular, thank you to Lars Eggert for his detailed review on behalf of the TSVART, 
+      Giuseppe Fioccola for his input on hop-by-hop and hybrid measurements, and to 
+      Mohamed Boucadair for his guidance on the inclusion of Operational Considerations.</t>
     </section>
 
     <section anchor="Contributors" numbered="false">
