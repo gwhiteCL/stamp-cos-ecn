@@ -321,7 +321,7 @@
       To obtain meaningful ECN measurements, both the Session-Sender
       and Session-Reflector SHOULD support the extended CoS TLV
       specified in this document. In deployments where a
-      Session-Reflector only supports the CoS TLV defined in RFC 8972,
+      Session-Reflector only supports the CoS TLV defined in <xref target="RFC8972"/>,
       a Session-Sender can detect the absence of reverse-path ECN
       support through the behavior of the RPE field and SHOULD limit
       its analysis accordingly.
@@ -464,8 +464,8 @@
   <section anchor="interoperability-considerations">
     <name>Interoperability Considerations</name>
     <t>
-      The extension is designed to be backward compatible with RFC
-      8972 implementations. Mixed deployments may therefore be
+      The extension is designed to be backward compatible with <xref target="RFC8972"/>
+      implementations. Mixed deployments may therefore be
       introduced incrementally.
     </t>
     <t>
@@ -502,7 +502,8 @@
       <t>In environments where a middlebox may tamper with the CoS TLV, this could affect the accuracy of ECN measurements.
       Implementers should consider the security implications of such tampering and take appropriate measures to mitigate potential risks.
       These measures could include the use of the HMAC TLV defined in <xref target="RFC8972" section="4.8"/> and/or the use of UDP port numbers
-      from the Dynamic Ports (aka Private or Ephemeral Ports) range (<xref target="RFC8762" section="4.1"/>) as the destination UDP port number in the STAMP test packets.</t>
+      from the Dynamic Ports (aka Private or Ephemeral Ports) range (<xref target="RFC8762" section="4.1"/>) as the destination UDP port number in the STAMP test packets.
+      The use of dynamic ports makes it harder for a middlebox to detect STAMP packets compared with when it is assigned the well-known UDP port number 862.</t>
     </section>
 
   </middle>
