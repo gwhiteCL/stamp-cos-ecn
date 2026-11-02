@@ -292,7 +292,7 @@
 
         <t>If a Session-Sender sends multiple STAMP packets with the CoS TLV to a Session-Reflector within an RTT with either the ECT0 or ECT1 value in the ECN field of the IP header, it <bcp14>MUST</bcp14> observe the reflected EC2 field and be capable of reducing its sending rate upon observation of a CE value.
         If a Session-Sender sends multiple STAMP packets with the CoS TLV to a Session-Reflector within an RTT with either the ECT0 or ECT1 value in the EC1 field, it <bcp14>MUST</bcp14> observe the ECN value in the IP header of the reflected packets and be capable of reducing its sending rate upon observation of a CE value.
-        If a Session-Sender sends a STAMP packet containing both the CoS TLV and the Reflected Test Packet Control TLV (<xref target="I-D.ietf-ippm-asymmetrical-pkts"/>) to a Session-Reflector, and specifies either the ECT0 or ECT1 value in the EC1 field, it <bcp14>MUST</bcp14> observe the ECN value in the IP header of the reflected packets and be capable of adjusting the Reflected Test Packet Control parameters in any future STAMP packet sent to the same Session-Reflector based on the observation of CE values.
+        If a Session-Sender sends a STAMP packet containing both the CoS TLV and the Reflected Test Packet Control TLV (<xref target="RFC10052"/>) to a Session-Reflector, and specifies either the ECT0 or ECT1 value in the EC1 field, it <bcp14>MUST</bcp14> observe the ECN value in the IP header of the reflected packets and be capable of adjusting the Reflected Test Packet Control parameters in any future STAMP packet sent to the same Session-Reflector based on the observation of CE values.
         The specific congestion response behavior is left to the implementer, but it <bcp14>MUST</bcp14> be consistent with the congestion response requirements defined in <xref target="RFC3168"/> and <xref target="RFC9330"/>.</t>
 
         <t>The CoS TLV can be used to characterize the CE-marking behavior of a path under a range of traffic conditions, including overload.
@@ -521,7 +521,6 @@
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8972.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9330.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.10052.xml"/>
-        <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-ippm-asymmetrical-pkts-08.xml"/>
       </references>
 
       <references>
@@ -541,7 +540,7 @@
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8311.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9331.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-ippm-stamp-ext-hdr-11.xml"/>
-        <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-tsvwg-udp-ecn-08.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.10055.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-ippm-on-path-active-measurements-03.xml"/>
         <reference anchor="ECN-Traversal" target="https://arxiv.org/abs/2208.14523">
           <front>
@@ -566,9 +565,9 @@
 
     <section anchor="Acknowledgements" numbered="false">
       <name>Acknowledgements</name>
-      <t>Thanks to the contributors and reviewers for their valuable feedback.  
-      In particular, thank you to Lars Eggert for his detailed review on behalf of the TSVART, 
-      Giuseppe Fioccola for his input on hop-by-hop and hybrid measurements, and to 
+      <t>Thanks to the contributors and reviewers for their valuable feedback.
+      In particular, thank you to Lars Eggert for his detailed review on behalf of the TSVART,
+      Giuseppe Fioccola for his input on hop-by-hop and hybrid measurements, and to
       Mohamed Boucadair for his guidance on the inclusion of Operational Considerations.</t>
     </section>
 
