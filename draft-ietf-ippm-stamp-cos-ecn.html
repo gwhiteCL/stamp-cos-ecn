@@ -1452,7 +1452,7 @@ svg {
         Similarly, when using this CoS TLV with either an ECT0 or an ECT1 value in the EC1 field, the Session-Sender gains the ability (via observing a CE in the ECN field of the IP header of the reflected packet) to detect that congestion was present on the path from the Session-Reflector to the Session-Sender.<a href="#section-3.4-2" class="pilcrow">¶</a></p>
 <p id="section-3.4-3">If a Session-Sender sends multiple STAMP packets with the CoS TLV to a Session-Reflector within an RTT with either the ECT0 or ECT1 value in the ECN field of the IP header, it <span class="bcp14">MUST</span> observe the reflected EC2 field and be capable of reducing its sending rate upon observation of a CE value.
         If a Session-Sender sends multiple STAMP packets with the CoS TLV to a Session-Reflector within an RTT with either the ECT0 or ECT1 value in the EC1 field, it <span class="bcp14">MUST</span> observe the ECN value in the IP header of the reflected packets and be capable of reducing its sending rate upon observation of a CE value.
-        If a Session-Sender sends a STAMP packet containing both the CoS TLV and the Reflected Test Packet Control TLV (<span>[<a href="#I-D.ietf-ippm-asymmetrical-pkts" class="cite xref">I-D.ietf-ippm-asymmetrical-pkts</a>]</span>) to a Session-Reflector, and specifies either the ECT0 or ECT1 value in the EC1 field, it <span class="bcp14">MUST</span> observe the ECN value in the IP header of the reflected packets and be capable of adjusting the Reflected Test Packet Control parameters in any future STAMP packet sent to the same Session-Reflector based on the observation of CE values.
+        If a Session-Sender sends a STAMP packet containing both the CoS TLV and the Reflected Test Packet Control TLV (<span>[<a href="#RFC10052" class="cite xref">RFC10052</a>]</span>) to a Session-Reflector, and specifies either the ECT0 or ECT1 value in the EC1 field, it <span class="bcp14">MUST</span> observe the ECN value in the IP header of the reflected packets and be capable of adjusting the Reflected Test Packet Control parameters in any future STAMP packet sent to the same Session-Reflector based on the observation of CE values.
         The specific congestion response behavior is left to the implementer, but it <span class="bcp14">MUST</span> be consistent with the congestion response requirements defined in <span>[<a href="#RFC3168" class="cite xref">RFC3168</a>]</span> and <span>[<a href="#RFC9330" class="cite xref">RFC9330</a>]</span>.<a href="#section-3.4-3" class="pilcrow">¶</a></p>
 <p id="section-3.4-4">The CoS TLV can be used to characterize the CE-marking behavior of a path under a range of traffic conditions, including overload.
         Such measurements may require a Session-Sender to maintain a specified test traffic rate or pattern despite observing CE markings.
@@ -1712,12 +1712,8 @@ svg {
 <span class="refAuthor">Briscoe, B., Ed.</span>, <span class="refAuthor">De Schepper, K.</span>, <span class="refAuthor">Bagnulo, M.</span>, and <span class="refAuthor">G. White</span>, <span class="refTitle">"Low Latency, Low Loss, and Scalable Throughput (L4S) Internet Service: Architecture"</span>, <span class="seriesInfo">RFC 9330</span>, <span class="seriesInfo">DOI 10.17487/RFC9330</span>, <time datetime="2023-01" class="refDate">January 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9330">https://www.rfc-editor.org/info/rfc9330</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC10052">[RFC10052]</dt>
-        <dd>
-<span class="refAuthor">Mirsky, G.</span>, <span class="refAuthor">Ruffini, E.</span>, <span class="refAuthor">Nydell, H.</span>, <span class="refAuthor">Foote, R.</span>, and <span class="refAuthor">W. Hawkins</span>, <span class="refTitle">"Performance Measurement with Asymmetrical Traffic Using the Simple Two-Way Active Measurement Protocol (STAMP)"</span>, <span class="seriesInfo">RFC 10052</span>, <span class="seriesInfo">DOI 10.17487/RFC10052</span>, <time datetime="2026-09" class="refDate">September 2026</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc10052">https://www.rfc-editor.org/info/rfc10052</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="I-D.ietf-ippm-asymmetrical-pkts">[I-D.ietf-ippm-asymmetrical-pkts]</dt>
       <dd>
-<span class="refAuthor">Mirsky, G.</span>, <span class="refAuthor">Ruffini, E.</span>, <span class="refAuthor">Nydell, H.</span>, <span class="refAuthor">Foote, R. F.</span>, and <span class="refAuthor">W. Hawkins</span>, <span class="refTitle">"Performance Measurement with Asymmetrical Traffic Using STAMP"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-ippm-asymmetrical-pkts-08</span>, <time datetime="2025-06-28" class="refDate">28 June 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-ippm-asymmetrical-pkts-08">https://datatracker.ietf.org/doc/html/draft-ietf-ippm-asymmetrical-pkts-08</a>&gt;</span>. </dd>
+<span class="refAuthor">Mirsky, G.</span>, <span class="refAuthor">Ruffini, E.</span>, <span class="refAuthor">Nydell, H.</span>, <span class="refAuthor">Foote, R.</span>, and <span class="refAuthor">W. Hawkins</span>, <span class="refTitle">"Performance Measurement with Asymmetrical Traffic Using the Simple Two-Way Active Measurement Protocol (STAMP)"</span>, <span class="seriesInfo">RFC 10052</span>, <span class="seriesInfo">DOI 10.17487/RFC10052</span>, <time datetime="2026-09" class="refDate">September 2026</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc10052">https://www.rfc-editor.org/info/rfc10052</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1742,9 +1738,9 @@ svg {
         <dd>
 <span class="refAuthor">Gandhi, R.</span>, <span class="refAuthor">Zhou, T.</span>, <span class="refAuthor">Li, Z.</span>, and <span class="refAuthor">W. Hawkins</span>, <span class="refTitle">"Simple Two-Way Active Measurement Protocol (STAMP) Extensions for Reflecting STAMP Packet IP Headers"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-ippm-stamp-ext-hdr-11</span>, <time datetime="2026-07-04" class="refDate">4 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-ippm-stamp-ext-hdr-11">https://datatracker.ietf.org/doc/html/draft-ietf-ippm-stamp-ext-hdr-11</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="I-D.ietf-tsvwg-udp-ecn">[I-D.ietf-tsvwg-udp-ecn]</dt>
+<dt id="RFC10055">[RFC10055]</dt>
         <dd>
-<span class="refAuthor">Duke, M.</span>, <span class="refTitle">"Configuring UDP Sockets for ECN for Common Platforms"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tsvwg-udp-ecn-08</span>, <time datetime="2026-05-04" class="refDate">4 May 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tsvwg-udp-ecn-08">https://datatracker.ietf.org/doc/html/draft-ietf-tsvwg-udp-ecn-08</a>&gt;</span>. </dd>
+<span class="refAuthor">Duke, M.</span>, <span class="refTitle">"Configuring UDP Sockets for Explicit Congestion Notification (ECN) for Common Platforms"</span>, <span class="seriesInfo">RFC 10055</span>, <span class="seriesInfo">DOI 10.17487/RFC10055</span>, <time datetime="2026-10" class="refDate">October 2026</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc10055">https://www.rfc-editor.org/info/rfc10055</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-ippm-on-path-active-measurements">[I-D.ietf-ippm-on-path-active-measurements]</dt>
         <dd>
@@ -1762,7 +1758,10 @@ svg {
       <h2 id="name-acknowledgements">
 <a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
       </h2>
-<p id="appendix-A-1">TBD<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">Thanks to the contributors and reviewers for their valuable feedback.
+      In particular, thank you to Lars Eggert for his detailed review on behalf of the TSVART,
+      Giuseppe Fioccola for his input on hop-by-hop and hybrid measurements, and to
+      Mohamed Boucadair for his guidance on the inclusion of Operational Considerations.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="Contributors">

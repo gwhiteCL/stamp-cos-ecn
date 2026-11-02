@@ -311,15 +311,15 @@ Table of Contents
    IP header of the reflected packets and be capable of reducing its
    sending rate upon observation of a CE value.  If a Session-Sender
    sends a STAMP packet containing both the CoS TLV and the Reflected
-   Test Packet Control TLV ([I-D.ietf-ippm-asymmetrical-pkts]) to a
-   Session-Reflector, and specifies either the ECT0 or ECT1 value in the
-   EC1 field, it MUST observe the ECN value in the IP header of the
-   reflected packets and be capable of adjusting the Reflected Test
-   Packet Control parameters in any future STAMP packet sent to the same
-   Session-Reflector based on the observation of CE values.  The
-   specific congestion response behavior is left to the implementer, but
-   it MUST be consistent with the congestion response requirements
-   defined in [RFC3168] and [RFC9330].
+   Test Packet Control TLV ([RFC10052]) to a Session-Reflector, and
+   specifies either the ECT0 or ECT1 value in the EC1 field, it MUST
+   observe the ECN value in the IP header of the reflected packets and
+   be capable of adjusting the Reflected Test Packet Control parameters
+   in any future STAMP packet sent to the same Session-Reflector based
+   on the observation of CE values.  The specific congestion response
+   behavior is left to the implementer, but it MUST be consistent with
+   the congestion response requirements defined in [RFC3168] and
+   [RFC9330].
 
    The CoS TLV can be used to characterize the CE-marking behavior of a
    path under a range of traffic conditions, including overload.  Such
@@ -558,14 +558,6 @@ Table of Contents
               September 2026,
               <https://www.rfc-editor.org/info/rfc10052>.
 
-   [I-D.ietf-ippm-asymmetrical-pkts]
-              Mirsky, G., Ruffini, E., Nydell, H., Foote, R. F., and W.
-              Hawkins, "Performance Measurement with Asymmetrical
-              Traffic Using STAMP", Work in Progress, Internet-Draft,
-              draft-ietf-ippm-asymmetrical-pkts-08, 28 June 2025,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-ippm-
-              asymmetrical-pkts-08>.
-
 7.2.  Informative References
 
    [Tracebox] Detal, G., Hesmans, B., Bonaventure, O., Vanaubel, Y., and
@@ -593,12 +585,10 @@ Table of Contents
               2026, <https://datatracker.ietf.org/doc/html/draft-ietf-
               ippm-stamp-ext-hdr-11>.
 
-   [I-D.ietf-tsvwg-udp-ecn]
-              Duke, M., "Configuring UDP Sockets for ECN for Common
-              Platforms", Work in Progress, Internet-Draft, draft-ietf-
-              tsvwg-udp-ecn-08, 4 May 2026,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-tsvwg-
-              udp-ecn-08>.
+   [RFC10055] Duke, M., "Configuring UDP Sockets for Explicit Congestion
+              Notification (ECN) for Common Platforms", RFC 10055,
+              DOI 10.17487/RFC10055, October 2026,
+              <https://www.rfc-editor.org/info/rfc10055>.
 
    [I-D.ietf-ippm-on-path-active-measurements]
               Fioccola, G., Zhu, K., Zhou, T., Zhu, Y., and X. Min, "On-
@@ -617,7 +607,11 @@ Table of Contents
 
 Acknowledgements
 
-   TBD
+   Thanks to the contributors and reviewers for their valuable feedback.
+   In particular, thank you to Lars Eggert for his detailed review on
+   behalf of the TSVART, Giuseppe Fioccola for his input on hop-by-hop
+   and hybrid measurements, and to Mohamed Boucadair for his guidance on
+   the inclusion of Operational Considerations.
 
 Contributors
 
