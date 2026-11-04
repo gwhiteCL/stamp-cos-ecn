@@ -18,7 +18,7 @@
 <rfc
   xmlns:xi="http://www.w3.org/2001/XInclude"
   category="std"
-  docName="draft-ietf-ippm-stamp-cos-ecn-latest"
+  docName="draft-ietf-bpm-stamp-cos-ecn-latest"
   ipr="trust200902"
   obsoletes=""
   updates="8972"
@@ -29,7 +29,7 @@
   <front>
     <title abbrev="STAMP CoS ECN Update">Update of the Simple Two-way Active Measurement Protocol Class-of-Service Extension - ECN</title>
 
-    <seriesInfo name="Internet-Draft" value="draft-ietf-ippm-stamp-cos-ecn-latest"/>
+    <seriesInfo name="Internet-Draft" value="draft-ietf-bpm-stamp-cos-ecn-latest"/>
 
 
     <author fullname="Greg White" initials="G" surname="White">
@@ -70,7 +70,7 @@
     <date/>
 
     <area>Operations and Management</area>
-    <workgroup>IP Performance Measurement</workgroup>
+    <workgroup>Benchmarking &amp; Performance Measurements</workgroup>
 
     <keyword>stamp</keyword>
     <keyword>DSCP</keyword>
@@ -539,8 +539,8 @@
         </reference>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8311.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9331.xml"/>
-        <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-ippm-stamp-ext-hdr-11.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.10055.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-ippm-stamp-ext-hdr-26.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.draft-ietf-ippm-on-path-active-measurements-03.xml"/>
         <reference anchor="ECN-Traversal" target="https://arxiv.org/abs/2208.14523">
           <front>
@@ -566,14 +566,13 @@
     <section anchor="Acknowledgements" numbered="false">
       <name>Acknowledgements</name>
       <t>Thanks to the contributors and reviewers for their valuable feedback.
-      In particular, thank you to Lars Eggert for his detailed review on behalf of the TSVART,
-      Giuseppe Fioccola for his input on hop-by-hop and hybrid measurements, and to
-      Mohamed Boucadair for his guidance on the inclusion of Operational Considerations.</t>
+      In particular, thank you to Lars Eggert (TSVART reviewer),
+      Giuseppe Fioccola, Mohamed Boucadair, Bjørn Ivar Teigen, Rakesh Gandhi, Sebastian Moeller, Ernesto Ruffini, Ingemar Johansson, Gorry Fairhurst and Rüdiger Geib.</t>
     </section>
 
     <section anchor="Contributors" numbered="false">
       <name>Contributors</name>
-      <t>Karthik Sundaresan, William Hawkins III, Gorry Fairhurst, Rüdiger Geib</t>
+      <t>Karthik Sundaresan, William Hawkins III</t>
     </section>
 
  </back>
