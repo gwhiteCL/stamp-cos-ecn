@@ -2,18 +2,18 @@
 
 
 
-IP Performance Measurement                                      G. White
+Benchmarking & Performance Measurements                         G. White
 Internet-Draft                                                 CableLabs
 Updates: 8972 (if approved)                                    G. Mirsky
 Intended status: Standards Track                                   Ciena
-Expires: 6 May 2027                                               X. Min
+Expires: 8 May 2027                                               X. Min
                                                                ZTE Corp.
-                                                         2 November 2026
+                                                         4 November 2026
 
 
    Update of the Simple Two-way Active Measurement Protocol Class-of-
                         Service Extension - ECN
-                  draft-ietf-ippm-stamp-cos-ecn-latest
+                  draft-ietf-bpm-stamp-cos-ecn-latest
 
 Abstract
 
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 May 2027.
+   This Internet-Draft will expire on 8 May 2027.
 
 Copyright Notice
 
@@ -577,18 +577,18 @@ Table of Contents
               DOI 10.17487/RFC9331, January 2023,
               <https://www.rfc-editor.org/info/rfc9331>.
 
-   [I-D.ietf-ippm-stamp-ext-hdr]
-              Gandhi, R., Zhou, T., Li, Z., and W. Hawkins, "Simple Two-
-              Way Active Measurement Protocol (STAMP) Extensions for
-              Reflecting STAMP Packet IP Headers", Work in Progress,
-              Internet-Draft, draft-ietf-ippm-stamp-ext-hdr-11, 4 July
-              2026, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              ippm-stamp-ext-hdr-11>.
-
    [RFC10055] Duke, M., "Configuring UDP Sockets for Explicit Congestion
               Notification (ECN) for Common Platforms", RFC 10055,
               DOI 10.17487/RFC10055, October 2026,
               <https://www.rfc-editor.org/info/rfc10055>.
+
+   [I-D.ietf-ippm-stamp-ext-hdr]
+              Gandhi, R., Zhou, T., Li, Z., and W. Hawkins, "Simple Two-
+              Way Active Measurement Protocol (STAMP) Extensions for
+              Reflecting STAMP Packet IP Headers", Work in Progress,
+              Internet-Draft, draft-ietf-ippm-stamp-ext-hdr-26, 27
+              October 2026, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-ippm-stamp-ext-hdr-26>.
 
    [I-D.ietf-ippm-on-path-active-measurements]
               Fioccola, G., Zhu, K., Zhou, T., Zhu, Y., and X. Min, "On-
@@ -608,15 +608,14 @@ Table of Contents
 Acknowledgements
 
    Thanks to the contributors and reviewers for their valuable feedback.
-   In particular, thank you to Lars Eggert for his detailed review on
-   behalf of the TSVART, Giuseppe Fioccola for his input on hop-by-hop
-   and hybrid measurements, and to Mohamed Boucadair for his guidance on
-   the inclusion of Operational Considerations.
+   In particular, thank you to Lars Eggert (TSVART reviewer), Giuseppe
+   Fioccola, Mohamed Boucadair, Bjørn Ivar Teigen, Rakesh Gandhi,
+   Sebastian Moeller, Ernesto Ruffini, Ingemar Johansson, Gorry
+   Fairhurst and Rüdiger Geib.
 
 Contributors
 
-   Karthik Sundaresan, William Hawkins III, Gorry Fairhurst, Rüdiger
-   Geib
+   Karthik Sundaresan, William Hawkins III
 
 Authors' Addresses
 
