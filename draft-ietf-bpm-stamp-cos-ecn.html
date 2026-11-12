@@ -1037,7 +1037,7 @@ svg {
   & :is([stroke="white"], [stroke^="#fff"]) {
     stroke: var(--background-color);
   }
-  & :is([fill="black"], [fill^="#000"], :not([fill])) {
+  & :is([fill="black"], [fill^="#000"], :not([fill], [fill] *)) {
     fill: var(--text-color);
   }
   & :is([fill="white"], [fill^="#fff"]) {
@@ -1056,7 +1056,7 @@ svg {
 </tr></thead>
 <tfoot><tr>
 <td class="left">White, et al.</td>
-<td class="center">Expires 8 May 2027</td>
+<td class="center">Expires 16 May 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1072,12 +1072,12 @@ svg {
 <a href="https://www.rfc-editor.org/rfc/rfc8972" class="eref">8972</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-11-04" class="published">4 November 2026</time>
+<time datetime="2026-11-12" class="published">12 November 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-05-08">8 May 2027</time></dd>
+<dd class="expires"><time datetime="2027-05-16">16 May 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1125,7 +1125,7 @@ svg {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 8 May 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 16 May 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1376,9 +1376,13 @@ svg {
       use of the value of the DSCP1 field is permitted in the reflected test packet.
       If it is, the Session-Reflector <span class="bcp14">MUST</span> set the DSCP field's value in the
       IP header of the reflected test packet equal to the value of the DSCP1
-      field of the received test packet.
-      Otherwise, the Session-Reflector <span class="bcp14">MUST</span> use the DSCP value of the received
-      STAMP packet and set the value of the RPD field to 0b01.
+      field of the received test packet and set RPD to 0b00.
+      Otherwise, if the use of DSCP2 is permitted, the Session-Reflector <span class="bcp14">MUST</span>
+      set the DSCP field to DSCP2 and set the value of the RPD field to 0b01.
+      If neither DSCP1 nor DSCP2 is permitted, the Session-Reflector <span class="bcp14">MUST</span> set
+      the DSCP field to a value permitted by local policy, set RPD to 0b01,
+      and set the Conformant Reflected Packet flag (<span><a href="https://rfc-editor.org/rfc/rfc10052#section-6.2" class="relref">Section 6.2</a> of [<a href="#RFC10052" class="cite xref">RFC10052</a>]</span>)
+      in the CoS TLV to 1.
       Upon receiving the reflected packet, if the value of the RPD field is 0b00,
       the Session-Sender will save the DSCP value for analysis of the CoS in
       the reverse direction.
@@ -1400,13 +1404,9 @@ svg {
       it <span class="bcp14">MUST</span> instead set the ECN value in the IP header to 0b00 and
       set the RPE field in the CoS TLV to the value 0b10
       in the reflected test packet.
-      If the Session-Reflector is unable to set the ECN value in the IP header of the
-      reflected STAMP test packet to the EC1 value, and the Session-Reflector is unable to set the ECN value
-      in the IP header of the reflected STAMP test packet to 0b00,
-      it <span class="bcp14">MUST</span> set the Conformant Reflected Packet STAMP TLV flag (<span><a href="https://rfc-editor.org/rfc/rfc10052#section-6.2" class="relref">Section 6.2</a> of [<a href="#RFC10052" class="cite xref">RFC10052</a>]</span>) to 1.
       As a result, the Session-Sender can detect whether the EC1
       value was used by
-      inspecting the value of the RPE field and the Conformant Reflected Packet STAMP TLV flag in the received
+      inspecting the value of the RPE field in the received
       reflected test packet.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
 </section>
 <section id="section-3.3">

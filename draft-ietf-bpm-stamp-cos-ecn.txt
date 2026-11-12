@@ -6,9 +6,9 @@ Benchmarking & Performance Measurements                         G. White
 Internet-Draft                                                 CableLabs
 Updates: 8972 (if approved)                                    G. Mirsky
 Intended status: Standards Track                                   Ciena
-Expires: 8 May 2027                                               X. Min
+Expires: 16 May 2027                                              X. Min
                                                                ZTE Corp.
-                                                         4 November 2026
+                                                        12 November 2026
 
 
    Update of the Simple Two-way Active Measurement Protocol Class-of-
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 May 2027.
+   This Internet-Draft will expire on 16 May 2027.
 
 Copyright Notice
 
@@ -204,9 +204,13 @@ Table of Contents
    DSCP1 field is permitted in the reflected test packet.  If it is, the
    Session-Reflector MUST set the DSCP field's value in the IP header of
    the reflected test packet equal to the value of the DSCP1 field of
-   the received test packet.  Otherwise, the Session-Reflector MUST use
-   the DSCP value of the received STAMP packet and set the value of the
-   RPD field to 0b01.  Upon receiving the reflected packet, if the value
+   the received test packet and set RPD to 0b00.  Otherwise, if the use
+   of DSCP2 is permitted, the Session-Reflector MUST set the DSCP field
+   to DSCP2 and set the value of the RPD field to 0b01.  If neither
+   DSCP1 nor DSCP2 is permitted, the Session-Reflector MUST set the DSCP
+   field to a value permitted by local policy, set RPD to 0b01, and set
+   the Conformant Reflected Packet flag (Section 6.2 of [RFC10052]) in
+   the CoS TLV to 1.  Upon receiving the reflected packet, if the value
    of the RPD field is 0b00, the Session-Sender will save the DSCP value
    for analysis of the CoS in the reverse direction.  If the value of
    the RPD field in the received reflected packet is 0b01, only CoS in
@@ -228,15 +232,9 @@ Table of Contents
    Reflector is unable to set the ECN value in the IP header of the
    reflected STAMP test packet to the EC1 value, it MUST instead set the
    ECN value in the IP header to 0b00 and set the RPE field in the CoS
-   TLV to the value 0b10 in the reflected test packet.  If the Session-
-   Reflector is unable to set the ECN value in the IP header of the
-   reflected STAMP test packet to the EC1 value, and the Session-
-   Reflector is unable to set the ECN value in the IP header of the
-   reflected STAMP test packet to 0b00, it MUST set the Conformant
-   Reflected Packet STAMP TLV flag (Section 6.2 of [RFC10052]) to 1.  As
-   a result, the Session-Sender can detect whether the EC1 value was
-   used by inspecting the value of the RPE field and the Conformant
-   Reflected Packet STAMP TLV flag in the received reflected test
+   TLV to the value 0b10 in the reflected test packet.  As a result, the
+   Session-Sender can detect whether the EC1 value was used by
+   inspecting the value of the RPE field in the received reflected test
    packet.
 
 3.3.  Interoperability with RFC 8972
