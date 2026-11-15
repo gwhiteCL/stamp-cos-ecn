@@ -257,8 +257,8 @@
       set the RPE field in the CoS TLV to the value 0b10
       in the reflected test packet.
       Although it is highly unlikely, if the Session-Reflector is unable to set the ECN value in the IP header of the
-      reflected STAMP test packet to the EC1 value, and is unable to set the ECN value 
-      in the IP header of the reflected STAMP test packet to 0b00, 
+      reflected STAMP test packet to the EC1 value, and is unable to set the ECN value
+      in the IP header of the reflected STAMP test packet to 0b00,
       it <bcp14>MUST</bcp14> set the RPE field in the CoS TLV to the value 0b01
       in the reflected test packet.
 
