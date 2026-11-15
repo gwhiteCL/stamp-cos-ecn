@@ -316,8 +316,8 @@
 
         <t>The CoS TLV can be used to characterize the CE-marking behavior of a path under a range of traffic conditions, including overload.
         Such measurements may require a Session-Sender to maintain a specified test traffic rate or pattern despite observing CE markings.
-        The congestion response capabilities described above MUST be enabled except when conducting such measurements in a controlled environment with the agreement of the operators of the networks under test.
-        In these cases, operators SHOULD establish limits on the rate and duration of test traffic, including reflected traffic, and take measures to prevent unintended impact on traffic outside the scope of the test.</t>
+        The congestion response capabilities described above <bcp14>MUST</bcp14> be enabled except when conducting such measurements in a controlled environment with the agreement of the operators of the networks under test.
+        In these cases, operators <bcp14>SHOULD</bcp14> establish limits on the rate and duration of test traffic, including reflected traffic, and take measures to prevent unintended impact on traffic outside the scope of the test.</t>
 
     </section>
   </section>
@@ -338,15 +338,15 @@
     <name>Deployment Considerations</name>
     <t>
       To obtain meaningful ECN measurements, both the Session-Sender
-      and Session-Reflector SHOULD support the extended CoS TLV
+      and Session-Reflector <bcp14>SHOULD</bcp14> support the extended CoS TLV
       specified in this document. In deployments where a
       Session-Reflector only supports the CoS TLV defined in <xref target="RFC8972"/>,
       a Session-Sender can detect the absence of reverse-path ECN
-      support through the behavior of the RPE field and SHOULD limit
+      support through the behavior of the RPE field and <bcp14>SHOULD</bcp14> limit
       its analysis accordingly.
     </t>
     <t>
-      Operators SHOULD verify that the platform hosting the
+      Operators <bcp14>SHOULD</bcp14> verify that the platform hosting the
       Session-Reflector is capable of setting and reporting ECN values
       in reflected test packets. Platform limitations or operating
       system restrictions may prevent the requested ECN value from
@@ -363,13 +363,13 @@
       per-destination basis.
     </t>
     <t>
-      Operators SHOULD understand and document these policies because
+      Operators <bcp14>SHOULD</bcp14> understand and document these policies because
       policy-enforced remarking may otherwise be incorrectly
       interpreted as network impairment or middlebox behavior.
     </t>
     <t>
       When measurements are performed across administrative domains,
-      operators SHOULD coordinate ECN handling policies to facilitate
+      operators <bcp14>SHOULD</bcp14> coordinate ECN handling policies to facilitate
       consistent interpretation of measurement results.
     </t>
   </section>
@@ -388,7 +388,7 @@
       <li>Whether Congestion Experienced (CE) markings were observed on either path.</li>
     </ul>
     <t>
-      Operators SHOULD collect and analyze the EC2 field, the ECN
+      Operators <bcp14>SHOULD</bcp14> collect and analyze the EC2 field, the ECN
       value observed in reflected packets, and the RPE field. These
       values can assist in identifying ECN bleaching, ECN remarking,
       differential treatment of ECN-marked packets, or congestion
@@ -454,7 +454,7 @@
       <li>Network congestion resulting in CE markings.</li>
     </ul>
     <t>
-      When investigating unexpected behavior, operators SHOULD examine
+      When investigating unexpected behavior, operators <bcp14>SHOULD</bcp14> examine
       the EC2 and RPE fields together with the ECN field of reflected
       packets in order to distinguish between network-induced behavior
       and Session-Reflector policy enforcement.
@@ -471,7 +471,7 @@
       measurements described in <xref target="congestion-response"/>.
     </t>
     <t>
-      Operators SHOULD ensure that automated measurement systems
+      Operators <bcp14>SHOULD</bcp14> ensure that automated measurement systems
       utilizing ECN-marked STAMP packets comply with the congestion
       response requirements discussed in <xref target="congestion-response"/>,
       including the conditions for controlled measurements, and do not
@@ -488,8 +488,8 @@
       introduced incrementally.
     </t>
     <t>
-      Operators SHOULD verify interoperability between Session-Senders
-      and Session-Reflectors during deployment and SHOULD confirm that
+      Operators <bcp14>SHOULD</bcp14> verify interoperability between Session-Senders
+      and Session-Reflectors during deployment and <bcp14>SHOULD</bcp14> confirm that
       reverse-path ECN functionality is available before relying on
       bidirectional ECN measurement results.
     </t>
