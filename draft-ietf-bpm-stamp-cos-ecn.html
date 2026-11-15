@@ -1463,8 +1463,8 @@ svg {
         The specific congestion response behavior is left to the implementer, but it <span class="bcp14">MUST</span> be consistent with the congestion response requirements defined in <span>[<a href="#RFC3168" class="cite xref">RFC3168</a>]</span> and <span>[<a href="#RFC9330" class="cite xref">RFC9330</a>]</span>.<a href="#section-3.4-3" class="pilcrow">¶</a></p>
 <p id="section-3.4-4">The CoS TLV can be used to characterize the CE-marking behavior of a path under a range of traffic conditions, including overload.
         Such measurements may require a Session-Sender to maintain a specified test traffic rate or pattern despite observing CE markings.
-        The congestion response capabilities described above MUST be enabled except when conducting such measurements in a controlled environment with the agreement of the operators of the networks under test.
-        In these cases, operators SHOULD establish limits on the rate and duration of test traffic, including reflected traffic, and take measures to prevent unintended impact on traffic outside the scope of the test.<a href="#section-3.4-4" class="pilcrow">¶</a></p>
+        The congestion response capabilities described above <span class="bcp14">MUST</span> be enabled except when conducting such measurements in a controlled environment with the agreement of the operators of the networks under test.
+        In these cases, operators <span class="bcp14">SHOULD</span> establish limits on the rate and duration of test traffic, including reflected traffic, and take measures to prevent unintended impact on traffic outside the scope of the test.<a href="#section-3.4-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1488,14 +1488,14 @@ svg {
         </h3>
 <p id="section-4.1-1">
       To obtain meaningful ECN measurements, both the Session-Sender
-      and Session-Reflector SHOULD support the extended CoS TLV
+      and Session-Reflector <span class="bcp14">SHOULD</span> support the extended CoS TLV
       specified in this document. In deployments where a
       Session-Reflector only supports the CoS TLV defined in <span>[<a href="#RFC8972" class="cite xref">RFC8972</a>]</span>,
       a Session-Sender can detect the absence of reverse-path ECN
-      support through the behavior of the RPE field and SHOULD limit
+      support through the behavior of the RPE field and <span class="bcp14">SHOULD</span> limit
       its analysis accordingly.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <p id="section-4.1-2">
-      Operators SHOULD verify that the platform hosting the
+      Operators <span class="bcp14">SHOULD</span> verify that the platform hosting the
       Session-Reflector is capable of setting and reporting ECN values
       in reflected test packets. Platform limitations or operating
       system restrictions may prevent the requested ECN value from
@@ -1513,12 +1513,12 @@ svg {
       packets. Such policies can be configured globally or on a
       per-destination basis.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.2-2">
-      Operators SHOULD understand and document these policies because
+      Operators <span class="bcp14">SHOULD</span> understand and document these policies because
       policy-enforced remarking may otherwise be incorrectly
       interpreted as network impairment or middlebox behavior.<a href="#section-4.2-2" class="pilcrow">¶</a></p>
 <p id="section-4.2-3">
       When measurements are performed across administrative domains,
-      operators SHOULD coordinate ECN handling policies to facilitate
+      operators <span class="bcp14">SHOULD</span> coordinate ECN handling policies to facilitate
       consistent interpretation of measurement results.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1541,7 +1541,7 @@ svg {
 </li>
         </ul>
 <p id="section-4.3-3">
-      Operators SHOULD collect and analyze the EC2 field, the ECN
+      Operators <span class="bcp14">SHOULD</span> collect and analyze the EC2 field, the ECN
       value observed in reflected packets, and the RPE field. These
       values can assist in identifying ECN bleaching, ECN remarking,
       differential treatment of ECN-marked packets, or congestion
@@ -1607,7 +1607,7 @@ svg {
 </li>
         </ul>
 <p id="section-4.4-4">
-      When investigating unexpected behavior, operators SHOULD examine
+      When investigating unexpected behavior, operators <span class="bcp14">SHOULD</span> examine
       the EC2 and RPE fields together with the ECN field of reflected
       packets in order to distinguish between network-induced behavior
       and Session-Reflector policy enforcement.<a href="#section-4.4-4" class="pilcrow">¶</a></p>
@@ -1625,7 +1625,7 @@ svg {
       to congestion conditions, subject to the exception for controlled
       measurements described in <a href="#congestion-response" class="auto internal xref">Section 3.4</a>.<a href="#section-4.5-1" class="pilcrow">¶</a></p>
 <p id="section-4.5-2">
-      Operators SHOULD ensure that automated measurement systems
+      Operators <span class="bcp14">SHOULD</span> ensure that automated measurement systems
       utilizing ECN-marked STAMP packets comply with the congestion
       response requirements discussed in <a href="#congestion-response" class="auto internal xref">Section 3.4</a>,
       including the conditions for controlled measurements, and do not
@@ -1643,8 +1643,8 @@ svg {
       implementations. Mixed deployments may therefore be
       introduced incrementally.<a href="#section-4.6-1" class="pilcrow">¶</a></p>
 <p id="section-4.6-2">
-      Operators SHOULD verify interoperability between Session-Senders
-      and Session-Reflectors during deployment and SHOULD confirm that
+      Operators <span class="bcp14">SHOULD</span> verify interoperability between Session-Senders
+      and Session-Reflectors during deployment and <span class="bcp14">SHOULD</span> confirm that
       reverse-path ECN functionality is available before relying on
       bidirectional ECN measurement results.<a href="#section-4.6-2" class="pilcrow">¶</a></p>
 </section>
