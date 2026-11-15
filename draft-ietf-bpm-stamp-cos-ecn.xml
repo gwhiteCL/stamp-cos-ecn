@@ -36,10 +36,8 @@
       <organization>CableLabs</organization>
       <address>
         <postal>
-          <street>858 Coal Creek Circle</street>
           <city>Louisville</city>
           <region>Colorado</region>
-          <code>80027</code>
           <country>US</country>
         </postal>
         <email>g.white@cablelabs.com</email>
@@ -63,6 +61,27 @@
           <country>CN</country>
         </postal>
         <email>xiao.min2@zte.com.cn</email>
+      </address>
+    </author>
+
+    <author fullname="Karthik Sundaresan" initials="K" surname="Sundaresan">
+      <organization>CableLabs</organization>
+      <address>
+        <postal>
+          <city>Louisville</city>
+          <region>Colorado</region>
+          <country>US</country>
+        </postal>
+        <email>k.sundaresan@cablelabs.com</email>
+        <!-- Can have more than one <email> element -->
+        <uri>http://www.cablelabs.com</uri>
+      </address>
+    </author>
+
+    <author fullname="Will Hawkins III" initials="W" surname="Hawkins" >
+      <organization>University of Cincinnati</organization>
+      <address>
+        <email>whawkinsw@obs.cr</email>
       </address>
     </author>
 
@@ -568,11 +587,6 @@
       <t>Thanks to the contributors and reviewers for their valuable feedback.
       In particular, thank you to Lars Eggert (TSVART reviewer),
       Giuseppe Fioccola, Mohamed Boucadair, Bjørn Ivar Teigen, Rakesh Gandhi, Sebastian Moeller, Ernesto Ruffini, Ingemar Johansson, Gorry Fairhurst and Rüdiger Geib.</t>
-    </section>
-
-    <section anchor="Contributors" numbered="false">
-      <name>Contributors</name>
-      <t>Karthik Sundaresan, William Hawkins III</t>
     </section>
 
  </back>
