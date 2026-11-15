@@ -6,9 +6,13 @@ Benchmarking & Performance Measurements                         G. White
 Internet-Draft                                                 CableLabs
 Updates: 8972 (if approved)                                    G. Mirsky
 Intended status: Standards Track                                   Ciena
-Expires: 16 May 2027                                              X. Min
+Expires: 19 May 2027                                              X. Min
                                                                ZTE Corp.
-                                                        12 November 2026
+                                                           K. Sundaresan
+                                                               CableLabs
+                                                              W. Hawkins
+                                                University of Cincinnati
+                                                        15 November 2026
 
 
    Update of the Simple Two-way Active Measurement Protocol Class-of-
@@ -42,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 May 2027.
+   This Internet-Draft will expire on 19 May 2027.
 
 Copyright Notice
 
@@ -82,7 +86,6 @@ Table of Contents
      7.1.  Normative References
      7.2.  Informative References
    Acknowledgements
-   Contributors
    Authors' Addresses
 
 1.  Introduction
@@ -611,16 +614,11 @@ Acknowledgements
    Sebastian Moeller, Ernesto Ruffini, Ingemar Johansson, Gorry
    Fairhurst and Rüdiger Geib.
 
-Contributors
-
-   Karthik Sundaresan, William Hawkins III
-
 Authors' Addresses
 
    Greg White
    CableLabs
-   858 Coal Creek Circle
-   Louisville, Colorado 80027
+   Louisville, Colorado
    United States of America
    Email: g.white@cablelabs.com
    URI:   http://www.cablelabs.com
@@ -636,3 +634,16 @@ Authors' Addresses
    Nanjing
    China
    Email: xiao.min2@zte.com.cn
+
+
+   Karthik Sundaresan
+   CableLabs
+   Louisville, Colorado
+   United States of America
+   Email: k.sundaresan@cablelabs.com
+   URI:   http://www.cablelabs.com
+
+
+   Will Hawkins III
+   University of Cincinnati
+   Email: whawkinsw@obs.cr
