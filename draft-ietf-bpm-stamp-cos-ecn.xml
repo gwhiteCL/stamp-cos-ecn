@@ -252,10 +252,16 @@
       test packet to the EC1 value, it <bcp14>MUST</bcp14> then set the RPE field in the CoS TLV in the
       reflected test packet to the value 0b11.
       If the Session-Reflector is unable to set the ECN value in the IP header of the
-      reflected STAMP test packet to the EC1 value,
-      it <bcp14>MUST</bcp14> instead set the ECN value in the IP header to 0b00 and
+      reflected STAMP test packet to the EC1 value, but is able to use the value 0b00 instead,
+      it <bcp14>MUST</bcp14> set the ECN value in the IP header to 0b00 and
       set the RPE field in the CoS TLV to the value 0b10
       in the reflected test packet.
+      Although it is highly unlikely, if the Session-Reflector is unable to set the ECN value in the IP header of the
+      reflected STAMP test packet to the EC1 value, and is unable to set the ECN value 
+      in the IP header of the reflected STAMP test packet to 0b00, 
+      it <bcp14>MUST</bcp14> set the RPE field in the CoS TLV to the value 0b01
+      in the reflected test packet.
+
       As a result, the Session-Sender can detect whether the EC1
       value was used by
       inspecting the value of the RPE field in the received
@@ -279,7 +285,7 @@
       section="4.4"/>.
       Further, the Session-Reflector would treat the RPE field as part of the
       Reserved field and thus it would send the value 0b00 in the reflected STAMP
-      packet, rather than sending the value 0b10 or 0b11.
+      packet, rather than sending the value 0b01, 0b10 or 0b11.
       Consequently, the Session-Sender will determine that the Session-Reflector
       does not implement the current version of the CoS TLV, and that the ECN value in the
       IP header of the reflected test packet was not set as requested.</t>
